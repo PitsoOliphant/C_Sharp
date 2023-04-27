@@ -1,168 +1,160 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PRG161_Test1PitsoOliphant_578437
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int AvailableBalance = 600;
+            string UserName = "Pitso";
+            int Pin = 12345;
+            int Transaction = 0;
+            int iterator1 = 1;
+            int Amount = 0;
+            string[] Rate = new string[] { "bad", "good", "Excellent" };
    
-
-/*Create a program to check if a number is a prime number*/
-
-using System.Globalization;
-/*Use a for loop and ask the user for a number and an exponent. Then show the answer*/
-{
-   Console.WriteLine("Enter number");
-    int num = Convert.ToInt16(Console.ReadLine());
-    Console.WriteLine("Enter exponent");
-    int exponent = Convert.ToInt16(Console.ReadLine());
-    int total = 1;
-    for (int i = 1; i <= exponent; i++)
-    {
-        total = total * num;
-    }
-    Console.WriteLine(total);
-}
-/*Create a program that will ask the user for 10 numbers. Each time show the number multiplied by 8.
- * Ask the number only once, but use it inside the for-loop. The for loop will do it 10 times*/
-{
-    Console.WriteLine("Please give 10 numbers");
-    int input = Convert.ToInt16(Console.ReadLine());
-    for (int i = 1; i <= 10; i++)
-    {
-        Console.WriteLine(input * 8);
-    }
-}
-
-{
-    Console.WriteLine("Please give number");
-    int input = Convert.ToInt16(Console.ReadLine());
-
-    int divisor = 0;
-    for (int i = 1; i <=input; i++)
-    {
-      
-        
-            if(input%i==0)
-            { divisor++;
-               
            
-
-            }
-           
-
-        
-    }
-            if(divisor==2)
+          
+            
+            for (int i = 1; i <= 3; i++)
             {
-            Console.WriteLine("It is a prime number");
+                Console.WriteLine("Please enter user name");
+                string UserNameInput=Console.ReadLine();
+                Console.WriteLine("Please enter your pin");
+                int UserPinInut = Convert.ToInt16(Console.ReadLine());
+                if (UserNameInput != UserName && UserPinInut != Pin)
+                {
+                    Console.WriteLine("Incorrect pin or user name");
+                    if(i==3)
+                    {
+                        Console.WriteLine("You have exhausted your attempts.");
+
+                    }
+                }
+                else
+                {
+                    i = 3;
+                    while (iterator1 > 0)
+                    {
+                        Console.WriteLine("Please select the following transaction: \r\n 1) Send Money\r\n 2) Buy Airtime\r\n 3) View Balance\r\n 4) Exit");
+                        Transaction = Convert.ToInt16(Console.ReadLine());
+                        if (Transaction == 1)
+                        {
+
+
+                            Console.WriteLine("Enter the amount you would like to send");
+                            Amount = Convert.ToInt16(Console.ReadLine());
+                           
+                            if (Amount > AvailableBalance)
+                            {
+                                Console.WriteLine("Insufficient amount! Please try again");
+                            }
+                            else
+                            {
+
+                                AvailableBalance = AvailableBalance - Amount;
+                                Console.WriteLine("You have successfully sent: R" + Amount);
+                             
+
+                            }
+
+
+
+
+                        }
+
+                        if (Transaction == 2)
+                        {
+                            for (int b = 1; b > 0; b++)
+                            {
+                                Console.WriteLine("Enter the amount of airtime you would like to purchase");
+                                Amount = Convert.ToInt16(Console.ReadLine());
+                                if (Amount > AvailableBalance)
+                                {
+                                    Console.WriteLine("Insufficient amount! Please try again");
+                                }
+                                else
+                                {
+                                    AvailableBalance = AvailableBalance - Amount;
+                                    Console.WriteLine("Transaction was successfull");
+                                    break;
+
+                                }
+                            }
+
+                         }
+
+                        if (Transaction == 3)
+                         {
+                        Console.WriteLine("You have R" + AvailableBalance + " remaining in your account");
+                         }
+
+                        if (Transaction == 4)
+                         {
+
+                            for (int c = 0; i < 4; c++)
+                            {
+
+                                Console.WriteLine("Please rate our service. 1 to 3 \n1 being poor and 3 being excellent");
+                                int service = Convert.ToInt16(Console.ReadLine());
+                                if (service == 1)
+                                {
+                                    Console.WriteLine(Rate[0]);
+                                    Console.WriteLine("===============================================================");
+                                    Console.WriteLine("Thank you!");
+                                    Console.WriteLine("===============================================================");
+                                    break;
+                                }
+                                else if (service == 2)
+                                {
+                                    Console.WriteLine(Rate[1]);
+                                    Console.WriteLine("===============================================================");
+                                    Console.WriteLine("Thank you!");
+                                    Console.WriteLine("===============================================================");
+                                    break;
+                                }
+                                else if (service == 3)
+                                {
+                                    Console.WriteLine(Rate[2]);
+                                    Console.WriteLine("===============================================================");
+                                    Console.WriteLine("Thank you!");
+                                    Console.WriteLine("===============================================================");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid selection. Please try again");
+                                    c--;
+                                }
+                            }
+
+
+                            break;
+                         }
+                        iterator1++;
+                    }
+
+
+
+
+
+                }
+
             }
-    else
-    {
-        Console.WriteLine(input + ": is not a prime number");
+
+
+
+
+
+             Console.WriteLine("Press any key to teminate");
+            
+            
+              Console.ReadKey();
+        }
     }
-       
-    
 }
-        
-    /*Create a program that can show all the factors of a number*/
-    {
-        Console.WriteLine("Enter number please");
-        int num = Convert.ToInt32(Console.ReadLine());
-        int i = 0;
-        while (i <= num)
-        {
-            i++;
-            if (num % i == 0)
-            {
-                Console.WriteLine(i);
-            }
-        }
-
-    }
-    /*Create a program that will ask users for a word. Then use a for-loop with the 
-     * word length. Show each letter on a line and check if a letter is "a"*/
-    {
-        Console.WriteLine("Please give word");
-        string str = Console.ReadLine();
-        for (int i = 0; i < str.Length; i++)
-        {
-            if (str[i] == 'a')
-            {
-                Console.WriteLine(str[i] + ": this is a");
-            }
-            else
-            {
-                Console.WriteLine(str[i] + ": this is not a");
-            }
-        }
-    }
-    /*Create that will ask the user for a word, use a for-loop with the word length
-     * Show each letter on a line and then show that letter in uppercase*/
-    {
-        Console.WriteLine("Please give word");
-        string str = Console.ReadLine();
-        for (int i = 0; i < str.Length; i++)
-        {
-            Console.WriteLine(str.ToUpper()[i]);
-        }
-
-
-    }
-    /*Create a program that will ask the user for a word. 
-     * Then use the length of the word to show the word that number of times.*/
-    {
-        Console.WriteLine("Please give word");
-        string str = Console.ReadLine();
-        for (int i = 0; i < str.Length; i++)
-        {
-            Console.WriteLine(str[i]);
-        }
-    }
-    /*Create a program that will ask the user for a word. Then the length of the word
-     * to show the word that number of times*/
-    {
-        int i = 0;
-        Console.WriteLine("Please give word");
-        string UserInput = Console.ReadLine();
-        while (i < UserInput.Length)
-        {
-            Console.WriteLine(UserInput);
-            i++;
-        }
-    }
-    /*Create a program that will show the multiples of 5 up to 200*/
-    {
-        int i = 0;
-        while (i <= 200)
-        {
-            Console.WriteLine(i);
-            i += 5;
-        }
-    }
-    /*Create a program that will show 1 to 100*/
-    {
-        int i = 1;
-        while (i <= 100)
-        {
-            Console.WriteLine(i);
-            i++;
-        }
-    }
-
-
-    /*Create a program that will show the word,"hello" 10 times*/
-    {
-        int i = 0;
-        while (i < 10)
-        {
-            i++;
-            Console.WriteLine(i + ")hello");
-        }
-    }
-    /*Ask the user for a number and show that number 10 times*/
-    {
-        int i = 0;
-        Console.WriteLine("Please enter number");
-        int UserInput = Convert.ToInt32(Console.ReadLine());
-        for (i = 0; i < UserInput; i++)
-        {
-            Console.WriteLine(i + ")hello");
-        }
-    }
-Console.ReadLine();
-   
